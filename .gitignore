@@ -1,0 +1,4 @@
+# Project exclude paths
+/Customer/target/
+/eureka/target/
+/fraud/target/
