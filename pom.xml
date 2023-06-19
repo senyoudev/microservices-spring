@@ -18,6 +18,8 @@
     <module>eureka</module>
     <module>clientsopen</module>
     <module>notification</module>
+    <module>apigw</module>
+    <module>amqp</module>
   </modules>
 
   <properties>
@@ -25,7 +27,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <spring.boot.maven.plugin.version>3.0.5</spring.boot.maven.plugin.version>
-    <spring.cloud-version>2022.0.0</spring.cloud-version>
+    <spring.cloud-version>2022.0.1</spring.cloud-version>
   </properties>
 
   <dependencyManagement>
