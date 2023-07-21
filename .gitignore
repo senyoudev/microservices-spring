@@ -2,3 +2,7 @@
 /Customer/target/
 /eureka/target/
 /fraud/target/
+amqp/target/
+apigw/target/
+clientsopen/target/
+notification/target
