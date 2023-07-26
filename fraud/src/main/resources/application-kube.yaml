@@ -1,28 +1,27 @@
 server:
-  port: 8080
-
+  port: 8081
 spring:
   application:
-    name: customer
+    name: fraud
   datasource:
-    url: jdbc:postgresql://postgres:5432/customer
-    username: postgres
     password: password
+    url: jdbc:postgresql://postgres:5433/fraud
+    username: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
-  rabbitmq:
-    addresses: rabbitmq:5672
+  zipkin:
+    base-url: http://zipkin:9411
 
 eureka:
   client:
-    enabled: false
     service-url:
       defaultZone: http://eureka-server:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+    enabled: false

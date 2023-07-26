@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - postgres
     restart: unless-stopped
@@ -37,15 +37,15 @@ services:
     networks:
       - spring
 
-  eureka-server:
-    image: senyoudev/eureka:latest
-    container_name: eureka-server
-    ports:
-      - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
+#  eureka-server:
+#    image: senyoudev/eureka:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
   cutsomer:
     image: senyoudev/customer:latest
     container_name: customer
@@ -57,7 +57,6 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
       - postgres
       - rabbitmq
   fraud:
@@ -71,7 +70,6 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
       - postgres
       - rabbitmq
   notification:
@@ -85,20 +83,19 @@ services:
       - spring
       - postgres
     depends_on:
-      - eureka-server
       - postgres
       - rabbitmq
-  apigw:
-    image: senyoudev/apigw:latest
-    container_name: apigw
-    ports:
-      - "8083:8083"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - eureka-server
+#  apigw:
+#    image: senyoudev/apigw:latest
+#    container_name: apigw
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - eureka-server
 
 networks:
   postgres:
